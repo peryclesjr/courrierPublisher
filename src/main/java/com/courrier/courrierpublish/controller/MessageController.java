@@ -1,7 +1,6 @@
 package com.courrier.courrierpublish.controller;
 
-import com.courrier.courrierpublish.service.impl.MessagePuublisherService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.courrier.courrierpublish.service.IMessagePublisherService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,9 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MessageController {
 
-    MessagePuublisherService publisherService;
+    IMessagePublisherService publisherService;
 
-    public MessageController(MessagePuublisherService publisherService) {
+    public MessageController(IMessagePublisherService publisherService) {
         this.publisherService = publisherService;
     }
 

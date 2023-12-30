@@ -1,5 +1,8 @@
 package com.courrier.courrierpublish.service.impl;
 
+
+import com.courrier.courrierpublish.service.IMessagePublisherService;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +12,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 @Service
-public class MessagePublisherService implements MessagePuublisherService {
+public class MessagePublisherService implements IMessagePublisherService {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
@@ -42,8 +45,8 @@ public class MessagePublisherService implements MessagePuublisherService {
                 mapCourrierUuid.put(Integer.valueOf(i), courrierUUID);
                 message = String.format(""" 
                             {
-                            "deliveryId":%s,
-                            "courierId":%s,
+                            "deliveryId":"%s",
+                            "courierId":"%s",
                             "createdTimestamp":%s,
                             "value":%f
                             } 
@@ -65,9 +68,9 @@ public class MessagePublisherService implements MessagePuublisherService {
                 uuidBonus = UUID.randomUUID().toString();
                 message = String.format(""" 
                             {
-                            "adjustmentId": %s,
-                            "deliveryId":%s,
-                            "courierId":%s,
+                            "adjustmentId": "%s",
+                            "deliveryId":"%s",
+                            "courierId":"%s",
                             "createdTimestamp":%s,
                             "value":%f
                             } 
@@ -92,8 +95,8 @@ public class MessagePublisherService implements MessagePuublisherService {
                 uuidAdjust = UUID.randomUUID().toString();
                 message = String.format(""" 
                             {
-                            "adjustmentId": %s,
-                            "deliveryId":%s,
+                            "adjustmentId": "%s",
+                            "deliveryId": "%s",
                             "courierId":"%s",
                             "createdTimestamp":%s,
                             "value":%f
@@ -115,4 +118,6 @@ public class MessagePublisherService implements MessagePuublisherService {
         publishToAdjustmentModified(message);
         publishToBonusModified(message);
     }
+
+
 }
