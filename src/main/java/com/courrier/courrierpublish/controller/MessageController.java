@@ -21,15 +21,4 @@ public class MessageController {
         return "Mensagem enviada para createdDelivery";
     }
 
-//    @PostMapping("/bonusModified")
-//    public String sendToBonusModified(@RequestBody String message) {
-//        publisherService.publishToBonusModified(message);
-//        return "Mensagem enviada para bonusModified";
-//    }
-//
-//    @PostMapping("/adjustmentModified")
-//    public String sendToAdjustmentModified(@RequestBody String message) {
-//        publisherService.publishToAdjustmentModified(message);
-//        return "Mensagem enviada para adjustmentModified";
-//    }
 }
