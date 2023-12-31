@@ -68,7 +68,7 @@ public class MessagePublisherService implements IMessagePublisherService {
                 uuidBonus = UUID.randomUUID().toString();
                 message = String.format(""" 
                             {
-                            "adjustmentId": "%s",
+                            "bonusId": "%s",
                             "deliveryId":"%s",
                             "courierId":"%s",
                             "createdTimestamp":%s,
