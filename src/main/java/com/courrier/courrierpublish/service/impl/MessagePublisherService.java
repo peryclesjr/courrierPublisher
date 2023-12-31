@@ -81,7 +81,7 @@ public class MessagePublisherService implements IMessagePublisherService {
                         (value + 1.0) * Math.random() * 10);
 
             }
-            rabbitTemplate.convertAndSend("courrierchallenge", "adjustmentModified", message);
+            rabbitTemplate.convertAndSend("courrierchallenge", "bonusModified", message);
         }
 
     }
@@ -108,7 +108,7 @@ public class MessagePublisherService implements IMessagePublisherService {
                             (value + 1.0) * Math.random() * 10);
 
             }
-            rabbitTemplate.convertAndSend(exchangeName, "bonusModified", message);
+            rabbitTemplate.convertAndSend(exchangeName, "adjustmentModified", message);
         }
     }
 
